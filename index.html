@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Failure Prediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f9ff;
+            text-align: center;
+            padding-top: 30px;
+        }
+        form {
+            background-color: white;
+            display: inline-block;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Failure Prediction</h1>
+    <form method="post" action="/predict">
+        <input type="text" name="age" placeholder="Age" required><br>
+        <input type="text" name="anaemia" placeholder="Anaemia (0 or 1)" required><br>
+        <input type="text" name="creatinine_phosphokinase" placeholder="CPK" required><br>
+        <input type="text" name="diabetes" placeholder="Diabetes (0 or 1)" required><br>
+        <input type="text" name="ejection_fraction" placeholder="Ejection Fraction" required><br>
+        <input type="text" name="high_blood_pressure" placeholder="High BP (0 or 1)" required><br>
+        <input type="text" name="platelets" placeholder="Platelets" required><br>
+        <input type="text" name="serum_creatinine" placeholder="Serum Creatinine" required><br>
+        <input type="text" name="serum_sodium" placeholder="Serum Sodium" required><br>
+        <input type="text" name="sex" placeholder="Sex (0=F, 1=M)" required><br>
+        <input type="text" name="smoking" placeholder="Smoking (0 or 1)" required><br>
+        <input type="text" name="time" placeholder="Follow-up Time" required><br>
+        <button type="submit">Predict</button>
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </form>
+</body>
+</html>
